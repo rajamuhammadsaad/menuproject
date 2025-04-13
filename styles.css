@@ -7,25 +7,26 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #2D2D2D;
+  background-image: url('file:///C:/Users/rajas/Desktop/WhatsApp%20Image%202025-04-13%20at%2002.38.36_2e5ba90d.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #FFF;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
+  font-size: large;
 }
 
 header {
-  background: #1A1A1A;
+  background: none;
   color: #FFF;
   text-align: center;
   padding: 60px 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+header img.logo {
+  max-width: 250px;
+  height: auto;
   margin-bottom: 15px;
 }
 
@@ -38,6 +39,8 @@ main {
   max-width: 1200px;
   margin: 30px auto;
   padding: 50px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 /* Dropdown container */
@@ -57,7 +60,6 @@ summary {
   color: #fff;
   padding: 20px;
   cursor: pointer;
-  outline: none;
   border: none;
   user-select: none;
   letter-spacing: 2px;
@@ -65,38 +67,44 @@ summary {
 }
 
 summary::-webkit-details-marker {
-  display: none; /* Hide default triangle icon */
+  display: none;
 }
 
-/* Menu Items */
-ul {
-  list-style: none;
+/* TILE CONTAINER */
+.tile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
   padding: 20px;
 }
 
-li {
-  background: #333;
-  margin: 10px 0;
+/* TILE */
+.tile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 8px;
+  text-align: center;
   transition: all 0.3s ease;
-  cursor: pointer;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
 }
 
-li:hover {
+.tile:hover {
   background: #ff4e50;
   transform: translateY(-5px);
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
 }
 
-li strong {
-  font-size: 1.5rem;
+.tile strong {
   display: block;
+  font-size: 1.5rem;
   margin-bottom: 10px;
+  color: #fff;
 }
 
-li span {
+.tile span {
   font-size: 1.3rem;
   font-weight: 600;
   color: #f8f8f8;
@@ -120,8 +128,8 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2.5rem;
+  header p {
+    font-size: 1rem;
   }
 
   main {
@@ -132,33 +140,112 @@ footer p {
     font-size: 1.5rem;
   }
 
-  li {
+  .tile {
     padding: 15px;
   }
 
-  li strong {
+  .tile strong {
     font-size: 1.2rem;
+  }
+
+  .tile span {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    padding: 15px 5px;
+  header p {
+    font-size: 0.9rem;
   }
 
   summary {
     font-size: 1.3rem;
   }
 
-  li {
+  .tile {
     padding: 12px;
   }
 
-  li strong {
+  .tile strong {
     font-size: 1rem;
   }
+
+  .tile span {
+    font-size: 0.9rem;
+  }
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.category-tile {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px 20px;
+  text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+.category-tile:hover {
+  background: #ff4e50;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+}
+
+.category-tile .emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.category-tile h2 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Inner Tiles inside each section */
+.menu-item-tile {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  width: calc(50% - 40px);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-item-tile:hover {
+  background: #ff4e50;
+  transform: scale(1.05);
+}
+
+.menu-item-tile h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.menu-item-tile p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* Flex layout for tiles */
+details ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
 }
