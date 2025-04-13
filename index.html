@@ -3,119 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menù - Hops Messina</title>
+  <title>Menù - Hops</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .menu-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      z-index: 1001;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-popup.show {
+      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      animation: fadeSlideIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .menu-popup h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .menu-popup ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-popup li {
+      padding: 10px 0;
+      font-size: 1.2rem;
+      color: #eee;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .menu-popup img {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+
+    .close-popup {
+      background: #ff4e50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Hops Messina</h1>
-    <p>Menù Digitale</p>
+    <img src="C:/Users/rajas/Desktop/HOPSI_LOGO_page-0001__1_-removebg-preview.png" alt="Hops Messina Logo" class="logo" />
+    <p>Menù</p>
   </header>
 
   <main>
-
-    <details open>
-      <summary>🍔 Burgers</summary>
-      <ul>
-        <li><strong>Chicken Burger</strong><br>Pollo, formaggio, maionese, bacon, pomodoro</li>
-        <li><strong>Manzo Burger</strong><br>Manzo, uovo fritto, formaggio, lattuga, pomodoro, salsa rosa</li>
-        <li><strong>New York Burger</strong><br>Manzo, cheddar, bacon, lattuga, patatine, salsa rosa</li>
-        <li><strong>Appetitoso Burger</strong><br>Manzo, formaggio, pomodoro, uovo fritto, maionese</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🥪 Panini e Piadine</summary>
-      <ul>
-        <li><strong>Apollo</strong><br>Cotoletta di pollo, lattuga, pomodoro, formaggio, salsa rosa</li>
-        <li><strong>Braciolotto</strong><br>Manzo o pollo, formaggio, lattuga, ketchup, maionese</li>
-        <li><strong>Vegetariano</strong><br>Rucola, mozzarella, pomodoro, funghi, olive</li>
-        <li><strong>Curioso</strong><br>Speck, formaggio, funghi, gorgonzola, maionese</li>
-        <li><strong>Proteico</strong><br>Bresaola, philadelphia, rucola, pomodoro, olive, tonno</li>
-        <li><strong>Hot Dog</strong><br>Wurstel, patatine, ketchup, maionese</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🍝 Primi Piatti</summary>
-      <ul>
-        <li>Spaghetti Cozze e Vongole</li>
-        <li>Spaghetti Pomodorini e Pesce Spada</li>
-        <li>Penne al Salmone</li>
-        <li>Spaghetti alla Carbonara</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🍗 Secondi Piatti</summary>
-      <p><em>Serviti con lattuga e patatine fritte</em></p>
-      <ul>
-        <li>Hamburger</li>
-        <li>Salsiccia</li>
-        <li>Involtini di Carne</li>
-        <li>Involtini di Pollo</li>
-        <li>Cotoletta di Carne</li>
-        <li>Cotoletta di Pollo</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🍟 Friggitoria</summary>
-      <ul>
-        <li>Arancinetti Misti (Pesto e Ragù)</li>
-        <li>Mozzarelle in Carrozza</li>
-        <li>Patatine, Wurstel e Anelli di Cipolla</li>
-        <li>Alette di Pollo con Salsa BBQ</li>
-        <li>Bastoncini di Formaggio</li>
-        <li>Mozzarelline Panate</li>
-        <li>Patatine e Wurstel</li>
-        <li>Patatine Fritte</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🥐 Rosticceria</summary>
-      <ul>
-        <li>Focaccia 250g</li>
-        <li>Arancino</li>
-        <li>Pidone Fritto Tradizionale</li>
-        <li>Mozzarella in Carrozza</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🥤 Bevande</summary>
-      <ul>
-        <li>Crodino</li>
-        <li>Redbull</li>
-        <li>Bitter</li>
-        <li>Coca-Cola</li>
-        <li>Chinotto</li>
-        <li>Aranciata</li>
-        <li>Sprite</li>
-        <li>Schweppes</li>
-        <li>Acqua Grande</li>
-        <li>Acqua Piccola</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>🍺 Birre</summary>
-      <ul>
-        <li>Ceres</li>
-        <li>Tennent's</li>
-        <li>Corona</li>
-        <li>Cristalli di Sale</li>
-        <li>Beck's</li>
-        <li>Heineken</li>
-        <li>Birra Messina</li>
-      </ul>
-    </details>
-
+    <div class="category-grid">
+      <div class="category-tile" data-category="apericena"><span class="emoji">🍹</span><h2>Apericena</h2></div>
+      <div class="category-tile" data-category="cocktail"><span class="emoji">🍸</span><h2>Pre-Dinner e Cocktail</h2></div>
+      <div class="category-tile" data-category="bibite"><span class="emoji">🥤</span><h2>Bibite</h2></div>
+      <div class="category-tile" data-category="dolci"><span class="emoji">🍰</span><h2>Dolci</h2></div>
+      <div class="category-tile" data-category="panini"><span class="emoji">🥪</span><h2>Panini e Piadine</h2></div>
+      <div class="category-tile" data-category="amari"><span class="emoji">🍇</span><h2>Amari e Liquori</h2></div>
+      <div class="category-tile" data-category="focaccia"><span class="emoji">🍞</span><h2>Focaccia</h2></div>
+      <div class="category-tile" data-category="rosticceria"><span class="emoji">🧀</span><h2>Rosticceria</h2></div>
+      <div class="category-tile" data-category="insalate"><span class="emoji">🥗</span><h2>Insalate</h2></div>
+      <div class="category-tile" data-category="contorni"><span class="emoji">🍽</span><h2>Contorni</h2></div>
+      <div class="category-tile" data-category="primi"><span class="emoji">🍝</span><h2>Primi Piatti</h2></div>
+      <div class="category-tile" data-category="secondi"><span class="emoji">🍗</span><h2>Secondi Piatti</h2></div>
+      <div class="category-tile" data-category="caffetteria"><span class="emoji">☕</span><h2>Caffetteria</h2></div>
+    </div>
   </main>
+
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="menu-popup" id="menuPopup">
+    <h2 id="popupTitle">Menu</h2>
+    <ul id="popupContent"></ul>
+    <button class="close-popup" id="closePopup">Chiudi</button>
+  </div>
 
   <footer>
     <p>© 2025 Hops Messina - Tutti i diritti riservati</p>
   </footer>
+
+  <script>
+    const menuData = {
+      apericena: [
+        { name: "Aperol Spritz", price: "5€", image: "img/spritz.jpg" },
+        { name: "Tagliere misto", price: "10€", image: "img/tagliere.jpg" },
+        { name: "Olive verdi", price: "3€", image: "img/olive.jpg" }
+      ],
+      cocktail: [
+        { name: "Mojito", price: "6€", image: "img/mojito.jpg" },
+        { name: "Negroni", price: "6€", image: "img/negroni.jpg" },
+        { name: "Gin Tonic", price: "6€", image: "img/gintonic.jpg" }
+      ],
+      bibite: [
+        { name: "Coca-Cola", price: "2.5€", image: "img/cocacola.jpg" },
+        { name: "Fanta", price: "2.5€", image: "img/fanta.jpg" },
+        { name: "Acqua Frizzante", price: "1.5€", image: "img/acqua.jpg" }
+      ]
+      // ... aggiungi il resto delle categorie con immagini e prezzi
+    };
+
+    const tiles = document.querySelectorAll(".category-tile");
+    const overlay = document.getElementById("popupOverlay");
+    const popup = document.getElementById("menuPopup");
+    const popupTitle = document.getElementById("popupTitle");
+    const popupContent = document.getElementById("popupContent");
+    const closeBtn = document.getElementById("closePopup");
+
+    tiles.forEach(tile => {
+      tile.addEventListener("click", () => {
+        const cat = tile.getAttribute("data-category");
+        popupTitle.textContent = tile.querySelector("h2").textContent;
+        popupContent.innerHTML = "";
+
+        menuData[cat]?.forEach(item => {
+          const li = document.createElement("li");
+          li.innerHTML = `<img src="${item.image}" alt="${item.name}" /><div><strong>${item.name}</strong><br><small>${item.price}</small></div>`;
+          popupContent.appendChild(li);
+        });
+
+        overlay.style.display = "block";
+        popup.classList.add("show");
+        popup.style.display = "block";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      overlay.style.display = "none";
+      popup.classList.remove("show");
+      popup.style.display = "none";
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.style.display = "none";
+      popup.classList.remove("show");
+      popup.style.display = "none";
+    });
+  </script>
 </body>
 </html>
